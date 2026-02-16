@@ -1,41 +1,28 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Test</title>
-
-  <script type="module"
-    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
-  </script>
-
-  <style>
-    body {
-      margin: 0;
-      background: #000;
-    }
-    model-viewer {
-      width: 100vw;
-      height: 100vh;
-      background: #222;
-    }
-  </style>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
 </head>
 
-<body>
-<h2 style="color:white;text-align:center;">
-Hiçbiryer'in Kralı  
-Dijital Heykel + Artırılmış Gerçeklik
-</h2>
+<body style="margin:0; overflow:hidden;">
 
-<model-viewer
-  src="kraldetaylar.glb"
-  ios-src="kraldetaylar2.usdz"
-  camera-controls
-  auto-rotate
-  environment-image="neutral"
-  scale="1 0.8 1"
-  exposure="0.5">
-</model-viewer>
+<a-scene embedded arjs="sourceType: webcam;">
+
+  <a-marker type="pattern" url="pattern-a1.patt">
+
+    <a-entity
+      gltf-model="kraldetaylar.glb"
+      scale="0.5 0.5 0.5"
+      position="0 0 0"
+      rotation="0 180 0">
+    </a-entity>
+
+  </a-marker>
+
+  <a-entity camera></a-entity>
+
+</a-scene>
 
 </body>
 </html>
